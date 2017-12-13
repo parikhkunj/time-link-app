@@ -16,33 +16,67 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-6">
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*1*" class="btn btn-primary btn-block">1</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*2*" class="btn btn-primary btn-block">2</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*3*" class="btn btn-primary btn-block">3</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*4*" class="btn btn-primary btn-block">4</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*5*" class="btn btn-primary btn-block">5</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*6*" class="btn btn-primary btn-block">6</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*7*" class="btn btn-primary btn-block">7</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*8*" class="btn btn-primary btn-block">8</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*9*" class="btn btn-primary btn-block">9</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*10*" class="btn btn-primary btn-block">10</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*11*" class="btn btn-primary btn-block">11</a>
-				<a href="https://api.whatsapp.com/send?phone=918000554559&text=%0A%0A%0A*12*" class="btn btn-primary btn-block">12</a>
+			<div class="col-sm-12">
+				<h1>The time link app.</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6" id="time_links_here">	
 				<a class="btn btn-primary btn-block" href="#helpCollapse" data-toggle="collapse">Help!</a>
 				<div class="panel panel-success collapse" id="helpCollapse">
 					<div class="panel-body">
 						<ul>
 							<li>Click on the number Button to send.</li>
-							<li>Time bound enabled.</li>
+							<li>Links are available at customer defined time.</li>
 						</ul>
 					</div>
 				</div>
-				<p>WARNING: Custom project developed for customer, as an example app.</p>
+				<br><p>WARNING: Custom project developed for customer, as an example app.</p>
 			</div>
 		</div>
 	</div>
-<!-- make send button enabled when we type only -->
-<!-- add elegant method that is adding a function to send that last message instead of assembling in the link -->
+<script type="text/javascript">
+	
+	/*Creating links to be prepend at time_links_here div*/
+	/*All the numbers that can be sent*/
+	var a = [1,2,3,4,5,6,7,8,9,10,11,12];
+	/*Link node that is to be attached*/
+	var link = null;
+	/*Class to be attached to the link node*/
+	var link_class='btn btn-default btn-block time_link';
+	/*Href to be attached to the link node*/
+	var href = "https://api.whatsapp.com/send?phone=918000554559&text=";
+	/*Special text before variable text*/
+	var text_pre = "%0A *";
+	/*Special text after variable text*/
+	var text_post = "*";
+
+	
+	/*Iterator for the array*/
+	for (var i = a.length - 1; i>=0; i--) {
+		/*Initial link*/
+		href = "https://api.whatsapp.com/send?phone=918000554559&text=";
+		/*Adding variable text with pre and post text*/
+		href = href + text_pre + a[i] + text_post;
+		/*Creating link node using jquery
+		attr function attach href and class attribute to the anchor tag*/
+		var link = $('<a></a>').attr({'href':href,'class':link_class}).text(a[i]);
+		/*Attaching it to the div with id time_links_here*/
+		$('#time_links_here').prepend(link);
+	}
+	/*End of creating links*/
+
+	/*Disabling Links at the time when not required*/
+	/*Date variable*/
+	var date = new Date();
+	/*Getting Hour variable from the date*/
+	var hour = date.getHours();
+	/*Condtion to enable the links*/
+	if(!((hour>6&&hour<9)||(hour>18&&hour<21)||hour==0)) {
+		/*Adding Bootstrap disabled class to disable links at the time when not required*/
+		$('.time_link').addClass('disabled');
+	}	
+	/*End of Disabling Links*/
+</script>
 </body>
 </html>
