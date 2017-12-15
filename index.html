@@ -12,7 +12,7 @@
 	<meta name="mobile-web-app-capable" content="yes">
     <link rel="icon" sizes="192x192" href="images/icon.png">
 
-	
+	<!-- Bootstrap css -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<!-- jQuery library -->
@@ -20,16 +20,22 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!--My CSS  -->
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-xs-12">
 				<h1>The time link app.</h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-6" id="time_links_here">	
+			<div class="col-xs-6">	
+				<div id="time_links_here">
+					<!-- Links come here -->
+				</div>
 				<a class="btn btn-primary btn-block" href="#helpCollapse" data-toggle="collapse">Help!</a>
 				<div class="panel panel-success collapse" id="helpCollapse">
 					<div class="panel-body">
@@ -50,8 +56,10 @@
 	var a = [1,2,3,4,5,6,7,8,9,10,11,12];
 	/*Link node that is to be attached*/
 	var link = null;
-	/*Class to be attached to the link node*/
-	var link_class='btn btn-default btn-block time_link';
+	/*Class to be attached to the link node
+		Here time_link class is added to search classes through jquery to 
+		add disable class to it*/
+	var link_class='btn btn-default time_link cstm-btn-circle';
 	/*Href to be attached to the link node*/
 	var href = "https://api.whatsapp.com/send?phone=918000554559&text=";
 	/*Special text before variable text*/
@@ -60,8 +68,11 @@
 	var text_post = "*";
 
 	
+
+	
 	/*Iterator for the array*/
 	for (var i = a.length - 1; i>=0; i--) {
+		
 		/*Initial link*/
 		href = "https://api.whatsapp.com/send?phone=918000554559&text=";
 		/*Adding variable text with pre and post text*/
@@ -71,6 +82,8 @@
 		var link = $('<a></a>').attr({'href':href,'class':link_class}).text(a[i]);
 		/*Attaching it to the div with id time_links_here*/
 		$('#time_links_here').prepend(link);
+
+		
 	}
 	/*End of creating links*/
 
@@ -82,7 +95,7 @@
 	/*Condtion to enable the links*/
 	if(!((hour>6&&hour<9)||(hour>18&&hour<21)||hour==0)) {
 		/*Adding Bootstrap disabled class to disable links at the time when not required*/
-		$('.time_link').addClass('disabled');
+		//$('.time_link').addClass('disabled');
 	}	
 	/*End of Disabling Links*/
 </script>

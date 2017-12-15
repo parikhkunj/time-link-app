@@ -1,0 +1,22 @@
+.cstm-btn-circle {
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 50px;
+	width: 50px;
+	border: 1px solid black;
+	border-radius: 25px;
+	margin: 5px;
+}
+
+#time_links_here {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: 5px;
+}
