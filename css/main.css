@@ -9,7 +9,6 @@
 	width: 35px;
 	border: 0px;
 
-
 	margin-bottom: 5px;
 	margin-top: 5px;
 
@@ -23,9 +22,11 @@
 	border-top-right-radius: 70px;
 	
 	margin-right: 5px;
+	
 
 	border-right: 1px solid black;
-	border-left: 1px dotted black; 
+
+	
 }
 
 .left-cstm-btn-circle {
@@ -34,7 +35,9 @@
 	
 	margin-left: 5px;
 
+
 	border-left: 1px solid black;
+	
 }
 
 
