@@ -27,7 +27,7 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-sm-12">
 				<h1>The time link app.</h1>
 			</div>
 		</div>
@@ -53,13 +53,18 @@
 	
 	/*Creating links to be prepend at time_links_here div*/
 	/*All the numbers that can be sent*/
-	var a = [1,2,3,4,5,6,7,8,9,10,11,12];
+	var a = [1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5];
 	/*Link node that is to be attached*/
 	var link = null;
 	/*Class to be attached to the link node
 		Here time_link class is added to search classes through jquery to 
 		add disable class to it*/
 	var link_class='btn btn-default time_link cstm-btn-circle';
+
+	var right_class = 'right-cstm-btn-circle';
+
+	var left_class = 'left-cstm-btn-circle';
+
 	/*Href to be attached to the link node*/
 	var href = "https://api.whatsapp.com/send?phone=918000554559&text=";
 	/*Special text before variable text*/
@@ -80,10 +85,18 @@
 		/*Creating link node using jquery
 		attr function attach href and class attribute to the anchor tag*/
 		var link = $('<a></a>').attr({'href':href,'class':link_class}).text(a[i]);
+		
+		/*Check if the index is even or odd*/
+		if(i%2==0) {
+			/*if even add left class*/
+			link = link.addClass(left_class);
+		} else {
+			/*else odd add right class*/
+			link = link.addClass(right_class);
+		}
+
 		/*Attaching it to the div with id time_links_here*/
 		$('#time_links_here').prepend(link);
-
-		
 	}
 	/*End of creating links*/
 

@@ -1,15 +1,42 @@
+
 .cstm-btn-circle {
 
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 
-	height: 50px;
-	width: 50px;
-	border: 1px solid black;
-	border-radius: 25px;
-	margin: 5px;
+	height: 70px;
+	width: 35px;
+	border: 0px;
+
+
+	margin-bottom: 5px;
+	margin-top: 5px;
+
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	
 }
+
+.right-cstm-btn-circle {
+	border-bottom-right-radius: 70px;
+	border-top-right-radius: 70px;
+	
+	margin-right: 5px;
+
+	border-right: 1px solid black;
+	border-left: 1px dotted black; 
+}
+
+.left-cstm-btn-circle {
+	border-bottom-left-radius: 70px;
+	border-top-left-radius: 70px;
+	
+	margin-left: 5px;
+
+	border-left: 1px solid black;
+}
+
 
 #time_links_here {
 	display: inline-flex;
